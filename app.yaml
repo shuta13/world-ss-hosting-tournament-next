@@ -1,0 +1,6 @@
+runtime: nodejs10
+
+service: w-ss-h-next
+handlers:
+- url: /.*
+  script: auto
