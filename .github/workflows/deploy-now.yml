@@ -33,3 +33,15 @@ jobs:
         yarn firebase deploy --token $FIREBASE_TOKEN
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+    - name: Extract GCP SA
+      run: |
+        echo $PROD_GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
+      env:
+        PROD_GCLOUD_SERVICE_KEY: ${{ secrets.PROD_GCLOUD_SERVICE_KEY }}
+    - name: Use cloud-sdk
+      uses: docker://google/cloud-sdk:217.0.0
+    - name: Deploy
+      run: |
+        gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+        gcloud app deploy --quiet --project My First Project
