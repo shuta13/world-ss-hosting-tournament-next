@@ -11,18 +11,21 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Run Test
-        run: |
-          yarn
-          yarn test
-      - name: Launch
-      - uses: amondnet/now-deployment@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          zeit-token: ${{ secrets.ZEIT_TOKEN }}
-          now-args: '--prod'
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Run Test
+      run: |
+        yarn
+        yarn test
+
+    - name: Launch
+    - uses: amondnet/now-deployment@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        zeit-token: ${{ secrets.ZEIT_TOKEN }}
+        now-args: '--prod'
