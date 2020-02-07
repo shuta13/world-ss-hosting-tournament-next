@@ -27,10 +27,9 @@ jobs:
     #     now-args: '--prod'
     - name: Prepare to deploy
       run: |
-        yarn global add firebase-tools
         yarn build
     - name: Deploy to Firebase
       run: |
-        firebase deploy --token $FIREBASE_TOKEN
+        yarn firebase deploy --token $FIREBASE_TOKEN
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

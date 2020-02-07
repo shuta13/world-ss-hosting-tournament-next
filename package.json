@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "firebase-tools": "^7.12.1",
     "next": "9.2.1",
     "now": "^17.0.1",
     "react": "16.12.0",
