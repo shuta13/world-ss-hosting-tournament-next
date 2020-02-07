@@ -20,6 +20,7 @@ jobs:
         run: |
           yarn
           yarn test
+      - name: Launch
       - uses: amondnet/now-deployment@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
