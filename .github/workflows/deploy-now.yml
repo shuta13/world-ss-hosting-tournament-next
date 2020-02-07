@@ -12,7 +12,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Launch
     - uses: amondnet/now-deployment@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
