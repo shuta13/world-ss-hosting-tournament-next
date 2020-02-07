@@ -25,9 +25,10 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         zeit-token: ${{ secrets.ZEIT_TOKEN }}
         now-args: '--prod'
-    - name: Deploy to Firebase
+    - name: Prepare to deploy
       run: |
         yarn global add firebase-tools
+        yarn build
     - name: Deploy to Firebase
       run: |
         yarn firebase deploy --token $FIREBASE_TOKEN
