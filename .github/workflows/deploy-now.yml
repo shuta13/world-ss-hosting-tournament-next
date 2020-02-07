@@ -20,11 +20,11 @@ jobs:
       run: |
         yarn
         yarn test
-    - uses: amondnet/now-deployment@v1
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        zeit-token: ${{ secrets.ZEIT_TOKEN }}
-        now-args: '--prod'
+    # - uses: amondnet/now-deployment@v1
+    #   with:
+    #     github-token: ${{ secrets.GITHUB_TOKEN }}
+    #     zeit-token: ${{ secrets.ZEIT_TOKEN }}
+    #     now-args: '--prod'
     - name: Prepare to deploy
       run: |
         yarn global add firebase-tools
