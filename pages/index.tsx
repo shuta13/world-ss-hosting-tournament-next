@@ -1,6 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 
+import Greet from '../components/Greet'
+
 const Home = () => (
   <div>
     <Head>
@@ -8,7 +10,7 @@ const Home = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    Hi There!
+    <Greet />
   </div>
 )
 
